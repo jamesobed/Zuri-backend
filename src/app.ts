@@ -1,7 +1,7 @@
 import createError, { HttpError } from "http-errors";
 import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
-import path from "path";
+// import path from "path";
 import morgan from "morgan";
 
 import indexRouter from "./routes/index";
@@ -9,12 +9,11 @@ import indexRouter from "./routes/index";
 
 const app = express();
 
-
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/*", indexRouter);
 // app.use("/users", usersRouter);
